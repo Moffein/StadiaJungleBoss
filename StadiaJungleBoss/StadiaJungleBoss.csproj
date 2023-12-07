@@ -362,6 +362,7 @@
     <Compile Include="Assets.cs" />
     <Compile Include="Components\BossButtonController.cs" />
     <Compile Include="Components\EncounterController.cs" />
+    <Compile Include="MagmaWormChanges.cs" />
     <Compile Include="Publicized.cs" />
     <Compile Include="Setup\StageSetup.cs" />
     <Compile Include="Setup\Tokens.cs" />
