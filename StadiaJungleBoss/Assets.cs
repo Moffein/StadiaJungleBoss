@@ -56,6 +56,7 @@ namespace StadiaJungleBoss
             ScriptedCombatEncounter sc = bossEncounter.AddComponent<ScriptedCombatEncounter>();
             sc.grantUniqueBonusScaling = true;
             sc.spawnOnStart = false;
+            sc.teamIndex = TeamIndex.Monster;
 
             ScriptedCombatEncounter.SpawnInfo si = new ScriptedCombatEncounter.SpawnInfo
             {

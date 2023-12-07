@@ -23,14 +23,14 @@ namespace StadiaJungleBoss.Components
         {
             scriptedCombatEncounter = base.GetComponent<ScriptedCombatEncounter>();
 
-            GameObject spawnPosition = new GameObject();
+            /*GameObject spawnPosition = new GameObject();
             spawnPosition.layer = LayerIndex.noCollision.intVal;
             spawnPosition.transform.position = new Vector3(-156.2064f, 74.37479f, -173.8296f) + Vector3.up * 20f;
-            UnityEngine.Object.Instantiate(spawnPosition);
+            UnityEngine.Object.Instantiate(spawnPosition);*/
 
             for (int i = 0; i < scriptedCombatEncounter.spawns.Length; i++)
             {
-                scriptedCombatEncounter.spawns[i].explicitSpawnPosition = spawnPosition.transform;
+                //scriptedCombatEncounter.spawns[i].explicitSpawnPosition = spawnPosition.transform;
                 scriptedCombatEncounter.spawns[i].spawnCard = bossCard;
             }
 
@@ -66,7 +66,7 @@ namespace StadiaJungleBoss.Components
                 spawnDelayCountdown = spawnDelay;
                 Chat.SendBroadcastChat(new Chat.SimpleChatMessage
                 {
-                    baseToken = "STADIAJUNGLEBOSS_SPAWN_Begin"
+                    baseToken = "STADIAJUNGLEBOSS_SPAWN_BEGIN"
                 });
             }
         }

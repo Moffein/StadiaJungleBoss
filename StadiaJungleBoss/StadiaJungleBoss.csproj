@@ -364,6 +364,7 @@
     <Compile Include="Components\EncounterController.cs" />
     <Compile Include="Publicized.cs" />
     <Compile Include="Setup\StageSetup.cs" />
+    <Compile Include="Setup\Tokens.cs" />
     <Compile Include="StadiaJungleBossPlugin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

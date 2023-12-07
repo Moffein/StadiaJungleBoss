@@ -17,6 +17,8 @@ namespace StadiaJungleBoss.Setup
             if (SceneManager.GetActiveScene().name == "rootjungle")
             {
                 BossButtonController.buttonsPressed = 0;
+                BossButtonController.totalButtons = 0;
+
                 GameObject randomHolder = GameObject.Find("HOLDER: Randomization");
                 if (!randomHolder)
                 {
