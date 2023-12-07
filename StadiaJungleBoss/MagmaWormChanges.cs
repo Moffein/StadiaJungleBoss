@@ -48,7 +48,7 @@ namespace StadiaJungleBoss
         {
             if (CheckForWorm(self))
             {
-                return "STADIAJUNGLEBOSS_BODY_SUBTITLE";
+                return Language.GetString("STADIAJUNGLEBOSS_BODY_SUBTITLE");
             }
             return orig(self);
         }
@@ -57,7 +57,7 @@ namespace StadiaJungleBoss
         {
             if (CheckForWorm(self))
             {
-                return "STADIAJUNGLEBOSS_BODY_NAME";
+                return Language.GetString("STADIAJUNGLEBOSS_BODY_NAME");
             }
             return orig(self);
         }
