@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
 using UnityEngine;
+using StadiaJungleBoss.Components;
 
 namespace StadiaJungleBoss.Setup
 {
@@ -15,6 +16,7 @@ namespace StadiaJungleBoss.Setup
         {
             if (SceneManager.GetActiveScene().name == "rootjungle")
             {
+                BossButtonController.buttonsPressed = 0;
                 GameObject randomHolder = GameObject.Find("HOLDER: Randomization");
                 if (!randomHolder)
                 {
@@ -56,6 +58,10 @@ namespace StadiaJungleBoss.Setup
                     }
                 }
             }
+
+            GameObject encounter = UnityEngine.Object.Instantiate<GameObject>(Assets.Prefabs.Encounter);
+            NetworkServer.Spawn(encounter);
+
             orig(self);
         }
     }

@@ -361,6 +361,8 @@
   <ItemGroup>
     <Compile Include="Assets.cs" />
     <Compile Include="Components\BossButtonController.cs" />
+    <Compile Include="Components\EncounterController.cs" />
+    <Compile Include="Publicized.cs" />
     <Compile Include="Setup\StageSetup.cs" />
     <Compile Include="StadiaJungleBossPlugin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -369,7 +371,6 @@
     <EmbeddedResource Include="stadiabossbundle" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
     <Exec Command="call &quot;$(ProjectDir)postbuild.bat&quot;&#xD;&#xA;" />
   </Target>

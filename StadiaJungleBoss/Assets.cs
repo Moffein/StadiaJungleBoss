@@ -9,6 +9,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 using UnityEngine.Networking;
 
 namespace StadiaJungleBoss
@@ -21,6 +22,7 @@ namespace StadiaJungleBoss
         {
             //from direseeker
             public static GameObject Button;
+            public static GameObject Encounter;
         }
 
         public static void PopulateAssets()
@@ -39,6 +41,35 @@ namespace StadiaJungleBoss
             Assets.Prefabs.Button.AddComponent<BossButtonController>();
             Assets.Prefabs.Button.AddComponent<NetworkIdentity>();
             Assets.Prefabs.Button.RegisterNetworkPrefab();	//Apparently this auto adds it to the contentpack?
+
+            GameObject bossEncounter = Assets.mainAssetBundle.LoadAsset<GameObject>("StadiaJungleEncounter");
+            bossEncounter.AddComponent<NetworkIdentity>();
+            TeamFilter tf = bossEncounter.AddComponent<TeamFilter>();
+            tf.defaultTeam = TeamIndex.Monster;
+
+            BossGroup bg = bossEncounter.AddComponent<BossGroup>();
+            bg.dropTable = Addressables.LoadAssetAsync<PickupDropTable>("RoR2/Base/Common/dtTier3Item.asset").WaitForCompletion();
+            bg.bossDropChance = 0f;
+            bg.scaleRewardsByPlayerCount = true;
+            bg.shouldDisplayHealthBarOnHud = true;
+
+            ScriptedCombatEncounter sc = bossEncounter.AddComponent<ScriptedCombatEncounter>();
+            sc.grantUniqueBonusScaling = true;
+            sc.spawnOnStart = false;
+
+            ScriptedCombatEncounter.SpawnInfo si = new ScriptedCombatEncounter.SpawnInfo
+            {
+                cullChance = 0f,
+                spawnCard = Addressables.LoadAssetAsync<CharacterSpawnCard>("RoR2/Base/RoboBallBoss/cscSuperRoboBallBoss.asset").WaitForCompletion()
+            };
+
+            sc.spawns = new ScriptedCombatEncounter.SpawnInfo[] { si };
+
+            EncounterController ec = bossEncounter.AddComponent<EncounterController>();
+
+            bossEncounter.RegisterNetworkPrefab();	//Apparently this auto adds it to the contentpack?
+
+            Assets.Prefabs.Encounter = bossEncounter;
         }
     }
 }

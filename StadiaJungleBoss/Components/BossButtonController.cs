@@ -6,6 +6,12 @@ namespace StadiaJungleBoss.Components
 {
     public class BossButtonController : NetworkBehaviour
     {
+        public delegate void OnButtonPressed();
+        public static OnButtonPressed OnButtonPressedActions;
+
+        public static int totalButtons = 0;
+        public static int buttonsPressed = 0;
+
         [SyncVar]
         public bool isPressedServer = false;
 
@@ -22,6 +28,8 @@ namespace StadiaJungleBoss.Components
             this.overlapSphereRadius = 1.5f;
             this.overlapSphereFrequency = 5f;
             this.enableOverlapSphere = true;
+
+            BossButtonController.totalButtons++;
         }
 
         //Client handles press visual
@@ -51,6 +59,8 @@ namespace StadiaJungleBoss.Components
                     if (Physics.OverlapSphere(base.transform.position, this.overlapSphereRadius, LayerIndex.defaultLayer.mask | LayerIndex.fakeActor.mask, QueryTriggerInteraction.UseGlobal).Length != 0)
                     {
                         this.isPressedServer = true;
+                        BossButtonController.buttonsPressed++;
+                        OnButtonPressedActions?.Invoke();
                     }
                 }
             }
