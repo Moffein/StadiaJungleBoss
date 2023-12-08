@@ -13,7 +13,7 @@ namespace StadiaJungleBoss
 {
     [BepInDependency("com.bepis.r2api")]
     [NetworkCompatibility(CompatibilityLevel.EveryoneMustHaveMod, VersionStrictness.EveryoneNeedSameModVersion)]
-    [BepInPlugin("com.Moffein.StadiaJungleBoss", "Stadia Jungle Boss", "1.1.1")]
+    [BepInPlugin("com.Moffein.StadiaJungleBoss", "Stadia Jungle Boss", "1.1.3")]
     [R2APISubmoduleDependency(new string[]
     {
         "PrefabAPI",
