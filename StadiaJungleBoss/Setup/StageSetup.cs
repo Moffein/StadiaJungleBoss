@@ -59,10 +59,11 @@ namespace StadiaJungleBoss.Setup
                         Debug.Log("StadiaJungleBoss: No chest found in category " + i);
                     }
                 }
-            }
 
-            GameObject encounter = UnityEngine.Object.Instantiate<GameObject>(Assets.Prefabs.Encounter);
-            NetworkServer.Spawn(encounter);
+
+                GameObject encounter = UnityEngine.Object.Instantiate<GameObject>(Assets.Prefabs.Encounter);
+                NetworkServer.Spawn(encounter);
+            }
 
             orig(self);
         }
