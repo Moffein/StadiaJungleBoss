@@ -29,7 +29,7 @@ namespace StadiaJungleBoss.Components
             this.overlapSphereFrequency = 5f;
             this.enableOverlapSphere = true;
 
-            BossButtonController.totalButtons++;
+            if (BossButtonController.totalButtons < 4) BossButtonController.totalButtons++;
         }
 
         //Client handles press visual
