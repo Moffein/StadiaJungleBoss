@@ -16,7 +16,7 @@ namespace StadiaJungleBoss
     [BepInDependency(R2API.R2API.PluginGUID)]
     [BepInDependency(R2API.ItemAPI.PluginGUID)]
     [NetworkCompatibility(CompatibilityLevel.EveryoneMustHaveMod, VersionStrictness.EveryoneNeedSameModVersion)]
-    [BepInPlugin("com.Moffein.StadiaJungleBoss", "Stadia Jungle Boss", "1.1.6")]
+    [BepInPlugin("com.Moffein.StadiaJungleBoss", "Stadia Jungle Boss", "1.1.7")]
     public class StadiaJungleBossPlugin : BaseUnityPlugin
     {
         public static PluginInfo pluginInfo;

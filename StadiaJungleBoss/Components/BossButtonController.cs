@@ -56,7 +56,8 @@ namespace StadiaJungleBoss.Components
                 if (this.overlapSphereStopwatch >= overlapTick)
                 {
                     this.overlapSphereStopwatch -= overlapTick;
-                    if (Physics.OverlapSphere(base.transform.position, this.overlapSphereRadius, LayerIndex.defaultLayer.mask | LayerIndex.fakeActor.mask, QueryTriggerInteraction.UseGlobal).Length != 0)
+
+                    if (HGPhysics.DoesOverlapSphere(base.transform.position, overlapSphereRadius, LayerIndex.CommonMasks.characterBodiesOrDefault | LayerIndex.CommonMasks.fakeActorLayers, QueryTriggerInteraction.UseGlobal))
                     {
                         this.isPressedServer = true;
                         BossButtonController.buttonsPressed++;
