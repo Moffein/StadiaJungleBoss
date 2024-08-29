@@ -10,7 +10,7 @@ namespace StadiaJungleBoss
 {
     internal static class MagmaWormChanges
     {
-        public static bool enabled, useStatItem;
+        public static bool enabled;
 
         public static ItemDef StatItem;
 
@@ -69,7 +69,6 @@ namespace StadiaJungleBoss
 
         private static void InitItem()
         {
-            if (!useStatItem) return;
             StatItem = ScriptableObject.CreateInstance<ItemDef>();
             StatItem.name = "StadiaBossMagmaWormItem";
             StatItem.deprecatedTier = ItemTier.NoTier;
@@ -91,19 +90,7 @@ namespace StadiaJungleBoss
         {
             if (body.bodyIndex == MagmaWormIndex && body.inventory)
             {
-                if (useStatItem)
-                {
-                    return body.inventory.GetItemCount(StatItem) > 0;
-                }
-                else
-                {
-                    if (body.inventory.GetItemCount(RoR2Content.Items.TeleportWhenOob) > 0
-                        && body.inventory.GetEquipmentIndex() == StadiaJungleBossPlugin.EliteEarthEquipment.equipmentIndex
-                        && SceneManager.GetActiveScene().name == "rootjungle")
-                    {
-                        return true;
-                    }
-                }
+                return body.inventory.GetItemCount(StatItem) > 0;
             }
             return false;
         }

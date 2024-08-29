@@ -361,3 +361,12 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/StadiaJungleUnity/AssetBundles/StandaloneWindows/stadiabossbundle
+/StadiaJungleUnity/AssetBundles/StandaloneWindows/stadiabossbundle.manifest
+/StadiaJungleUnity/AssetBundles/StandaloneWindows/StandaloneWindows
+/StadiaJungleUnity/AssetBundles/StandaloneWindows/StandaloneWindows.manifest
+/StadiaJungleUnity/Assets/StreamingAssets/stadiabossbundle
+/StadiaJungleUnity/Assets/StreamingAssets/stadiabossbundle.manifest
+/StadiaJungleUnity/Assets/StreamingAssets/StandaloneWindows
+/StadiaJungleUnity/Assets/StreamingAssets/StandaloneWindows.manifest
+/StadiaJungleUnity/ProjectSettings/ProjectVersion.txt

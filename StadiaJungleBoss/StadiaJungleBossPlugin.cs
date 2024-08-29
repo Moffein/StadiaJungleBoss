@@ -11,14 +11,12 @@ using BepInEx.Configuration;
 
 namespace StadiaJungleBoss
 {
-    [BepInDependency("com.bepis.r2api")]
+    [BepInDependency(R2API.PrefabAPI.PluginGUID)]
+    [BepInDependency(R2API.ContentManagement.R2APIContentManager.PluginGUID)]
+    [BepInDependency(R2API.R2API.PluginGUID)]
+    [BepInDependency(R2API.ItemAPI.PluginGUID)]
     [NetworkCompatibility(CompatibilityLevel.EveryoneMustHaveMod, VersionStrictness.EveryoneNeedSameModVersion)]
-    [BepInPlugin("com.Moffein.StadiaJungleBoss", "Stadia Jungle Boss", "1.1.5")]
-    [R2APISubmoduleDependency(new string[]
-    {
-        "PrefabAPI",
-        "ContentAddition"
-    })]
+    [BepInPlugin("com.Moffein.StadiaJungleBoss", "Stadia Jungle Boss", "1.1.6")]
     public class StadiaJungleBossPlugin : BaseUnityPlugin
     {
         public static PluginInfo pluginInfo;
@@ -42,10 +40,7 @@ namespace StadiaJungleBoss
         private void ReadConfig()
         {
             MagmaWormChanges.enabled = base.Config.Bind<bool>(new ConfigDefinition("Magma Worm", "Enable Changes"), true,
-                new ConfigDescription("Modify the Mending Magma Worm spawned by this mod.")).Value;
-
-            MagmaWormChanges.useStatItem = base.Config.Bind<bool>(new ConfigDefinition("Magma Worm", "Use Hidden Item"), true,
-                new ConfigDescription("Use a hidden item to determine whether to apply Magma Worm changes. If not, changes will be applied using a hackier method. You should REALLY leave this enabled unless you are using a mod with a config based on raw item indexes.")).Value;
+                new ConfigDescription("Modify the Mending Magma Worm spawned by this mod, replacing its name and some other stuff.")).Value;
         }
 
         private void CreateSpawnCard()
@@ -62,7 +57,7 @@ namespace StadiaJungleBoss
             spawnCard.nodeGraphType = RoR2.Navigation.MapNodeGroup.GraphType.Ground;
             spawnCard.hullSize = HullClassification.Golem;
 
-            if (MagmaWormChanges.enabled && MagmaWormChanges.useStatItem)
+            if (MagmaWormChanges.enabled)
             {
 
                 spawnCard.itemsToGrant = new ItemCountPair[]
