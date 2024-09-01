@@ -385,4 +385,7 @@
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
     <Exec Command="call &quot;$(ProjectDir)postbuild.bat&quot;&#xD;&#xA;" />
   </Target>
+  <PropertyGroup>
+    <PostBuildEvent>call "$(ProjectDir)postbuild.bat"</PostBuildEvent>
+  </PropertyGroup>
 </Project>
