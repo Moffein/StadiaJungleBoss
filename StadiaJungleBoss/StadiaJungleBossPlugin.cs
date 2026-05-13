@@ -16,10 +16,13 @@ namespace StadiaJungleBoss
     [BepInDependency(R2API.R2API.PluginGUID)]
     [BepInDependency(R2API.ItemAPI.PluginGUID)]
     [NetworkCompatibility(CompatibilityLevel.EveryoneMustHaveMod, VersionStrictness.EveryoneNeedSameModVersion)]
-    [BepInPlugin("com.Moffein.StadiaJungleBoss", "Stadia Jungle Boss", "1.1.7")]
+    [BepInPlugin("com.Moffein.StadiaJungleBoss", "Stadia Jungle Boss", "1.1.8")]
     public class StadiaJungleBossPlugin : BaseUnityPlugin
     {
         public static PluginInfo pluginInfo;
+        public static bool RemoveChestsConfig;
+        private static string LevelNamesConfigRaw;
+        public static string[] LevelNames;
 
         internal static EquipmentDef EliteEarthEquipment = Addressables.LoadAssetAsync<EquipmentDef>("RoR2/DLC1/EliteEarth/EliteEarthEquipment.asset").WaitForCompletion();
 
@@ -41,6 +44,12 @@ namespace StadiaJungleBoss
         {
             MagmaWormChanges.enabled = base.Config.Bind<bool>(new ConfigDefinition("Magma Worm", "Enable Changes"), true,
                 new ConfigDescription("Modify the Mending Magma Worm spawned by this mod, replacing its name and some other stuff.")).Value;
+            RemoveChestsConfig = base.Config.Bind<bool>(new ConfigDefinition("Remove Legendary Chest", "Remove Chest Toggle"), true,
+                new ConfigDescription("Whether to delete the existing Legendary Chest, set to True by default.")).Value;
+            LevelNamesConfigRaw = base.Config.Bind<string>(new ConfigDefinition("Stage List (Unstable)", "List of Stages"), "rootjungle",
+               new ConfigDescription("List of stages to add the buttons to and to attempt to remove the Legendary Chest from, seperated by commas and using internal scene names. This will likely break though on other maps than Sundered Grove (rootjungle), and is just a temporary dev feature for debugging/testing stuff.")).Value;
+            LevelNames = LevelNamesConfigRaw.ToString().Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+
         }
 
         private void CreateSpawnCard()

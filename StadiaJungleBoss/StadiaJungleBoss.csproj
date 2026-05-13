@@ -37,6 +37,24 @@
     <Reference Include="0Harmony20">
       <HintPath>libs\BepInEx\0Harmony20.dll</HintPath>
     </Reference>
+    <Reference Include="Ak.Wwise.Api.WAAPI">
+      <HintPath>..\..\..\..\..\Downloads\Ak.Wwise.Api.WAAPI.dll</HintPath>
+    </Reference>
+    <Reference Include="AK.Wwise.Unity.API, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Downloads\AK.Wwise.Unity.API.dll</HintPath>
+    </Reference>
+    <Reference Include="AK.Wwise.Unity.API.WwiseTypes, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Downloads\AK.Wwise.Unity.API.WwiseTypes.dll</HintPath>
+    </Reference>
+    <Reference Include="AK.Wwise.Unity.MonoBehaviour, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Downloads\AK.Wwise.Unity.MonoBehaviour.dll</HintPath>
+    </Reference>
+    <Reference Include="AK.Wwise.Unity.Timeline">
+      <HintPath>..\..\..\..\..\Downloads\AK.Wwise.Unity.Timeline.dll</HintPath>
+    </Reference>
     <Reference Include="Assembly-CSharp">
       <HintPath>libs\Assembly-CSharp.dll</HintPath>
     </Reference>
@@ -359,9 +377,6 @@
     </Reference>
     <Reference Include="UnityEngine.XRModule">
       <HintPath>libs\UnityEngine.XRModule.dll</HintPath>
-    </Reference>
-    <Reference Include="Wwise">
-      <HintPath>libs\Wwise.dll</HintPath>
     </Reference>
     <Reference Include="Zio">
       <HintPath>libs\Zio.dll</HintPath>
